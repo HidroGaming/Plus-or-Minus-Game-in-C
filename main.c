@@ -4,116 +4,62 @@
 
 int main()
 {
-    int MysteriousNumber = 0, nombreEntre = 0;
-    char chaine[] = "aaaaaaa";
+    int MysteriousNumber = 0, nombreEntre = 0,coups = 0,rejouer = 0,difficulty = 2;
+    int max = 0;
+    const int min = 1;
     printf("Hello , welcome to the Plus or Minus game !\n");
     system("pause");
-    printf("Choose your difficulty :\n");
-    printf("Easy : number = 1 to 100\n");
-    printf("Normal : number = 1 to 200\n");
-    printf("Hard : number = 1 to 500\n");
-    printf("Expert : number = 1 to 1000\n");
-    scanf("%s", chaine);
-    if (chaine == "Easy") {
-        do{
-            int MIN = 1, MAX = 100;
-            srand(time(NULL));
-            MysteriousNumber = (rand() % (MAX - MIN + 1)) + MIN;
+    printf("Choose your difficulty : \n");
+    printf("1 = 1 to 10, 2 = 1 to 100,3 = 1 to 1000\n");
+    scanf("%d", &difficulty);
+
+    switch(difficulty)
+    {
+    case 1:
+        max = 10;
+        break;
+    case 2:
+        max = 100;
+        break;
+    case 3:
+        max = 1000;
+        break;
+    default:
+        printf("Invalid number , i will take automatically the difficulty : 2.\n");
+    }
+
+    do
+    {
+        coups = 0;
+        MysteriousNumber = (rand() % (max - min + 1)) + 1;
+        do
+        {
             printf("What's the number ?");
             scanf("%d", &nombreEntre);
+            coups++;
 
-
-            if (nombreEntre < MysteriousNumber)
-            {
-                printf("It's bigger !\n");
+            if (MysteriousNumber > nombreEntre) {
+                printf("It's plus !\n");
             }
-            else if (nombreEntre > MysteriousNumber)
+            else if (MysteriousNumber < nombreEntre)
             {
-                printf("It's smaller !\n");
+                printf("It's minus !\n");
             }
             else
             {
-            printf("Well done, that's it !\n");
+                printf("Well done , That's it ( in %d times ) !\n", coups);
             }
+        } while (nombreEntre != MysteriousNumber);
 
-        }while(nombreEntre != MysteriousNumber);
-    }
-    else if (chaine == "Normal") {
-        do{
-            int MIN = 1, MAX = 200;
-            srand(time(NULL));
-            MysteriousNumber = (rand() % (MAX - MIN + 1)) + MIN;
-            printf("What's the number ?");
-            scanf("%d", &nombreEntre);
+        printf("Would you like to do another party (1 = yes, 0 = no) ? ");
+        scanf("%d", &rejouer);
 
 
-            if (nombreEntre < MysteriousNumber)
-            {
-                printf("It's bigger !\n");
-            }
-            else if (nombreEntre > MysteriousNumber)
-            {
-                printf("It's smaller !\n");
-            }
-            else
-            {
-            printf("Well done, that's it !\n");
-            }
+    } while (rejouer);
 
-        }while(nombreEntre != MysteriousNumber);
-    }
-    else if (chaine == "Hard") {
-        do{
-            int MIN = 1, MAX = 500;
-            srand(time(NULL));
-            MysteriousNumber = (rand() % (MAX - MIN + 1)) + MIN;
-            printf("What's the number ?");
-            scanf("%d", &nombreEntre);
-
-
-            if (nombreEntre < MysteriousNumber)
-            {
-                printf("It's bigger !\n");
-            }
-            else if (nombreEntre > MysteriousNumber)
-            {
-                printf("It's smaller !\n");
-            }
-            else
-            {
-            printf("Well done, that's it !\n");
-            }
-
-        }while(nombreEntre != MysteriousNumber);
-    }
-    else if (chaine == "Expert") {
-        do{
-            int MIN = 1, MAX = 100;
-            srand(time(NULL));
-            MysteriousNumber = (rand() % (MAX - MIN + 1)) + MIN;
-            printf("What's the number ?");
-            scanf("%d", &nombreEntre);
-
-
-            if (nombreEntre < MysteriousNumber)
-            {
-                printf("It's bigger !\n");
-            }
-            else if (nombreEntre > MysteriousNumber)
-            {
-                printf("It's smaller !\n");
-            }
-            else
-            {
-            printf("Well done, that's it !\n");
-            }
-
-        }while(nombreEntre != MysteriousNumber);
-    }
-    else () {
-        printf("It's not a valid difficulty")
-    }
 
     system("pause");
+
+    return 0;
 
 }
