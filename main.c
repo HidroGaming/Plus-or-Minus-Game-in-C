@@ -7,6 +7,12 @@ int main()
     int MysteriousNumber = 0, nombreEntre = 0,coups = 0,rejouer = 0,difficulty = 2;
     int max = 0;
     const int min = 1;
+    printf("  _____  _                                    _                  \n");
+    printf(" |  __ \| |                                  (_)                 \n");
+    printf(" | |__) | |_   _ ___    ___  _ __   _ __ ___  _ _ __  _   _ ___  \n");
+    printf(" |  ___/| | | | / __|  / _ \| '__| | '_ ` _ \| | '_ \| | | / __| \n");
+    printf(" | |    | | |_| \__ \ | (_) | |    | | | | | | | | | | |_| \__ \ \n");
+    printf(" |_|    |_|\__,_|___/  \___/|_|    |_| |_| |_|_|_| |_|\__,_|___/ \n");
     printf("Hello , welcome to the Plus or Minus game !\n");
     system("pause");
     printf("Choose your difficulty : \n");
